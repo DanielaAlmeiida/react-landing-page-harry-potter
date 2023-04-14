@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(rgb(0, 0, 0), #01302d);
+}

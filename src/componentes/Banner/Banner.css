@@ -1,0 +1,9 @@
+.banner {
+    background-color: rgb(3, 39, 31);
+    margin: 0;
+    border: 0;
+}
+
+.banner img {
+    width: 100%;
+}
