@@ -1,3 +1,4 @@
+import { waitForElementToBeRemoved } from '@testing-library/react';
 import './TextField.css';
 
 const TextField = (props) => {
@@ -8,7 +9,7 @@ const TextField = (props) => {
             <label>
                 {props.label}
             </label>
-            <input placeholder={modifiedPlaceholder}/>
+            <input required={props.required} placeholder={modifiedPlaceholder}/>
         </div>
     );
 }

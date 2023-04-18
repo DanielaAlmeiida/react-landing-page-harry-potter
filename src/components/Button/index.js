@@ -2,8 +2,8 @@ import './Button.css';
 
 const Button = (props) => {
     return (
-        <button>
-            {props.text}
+        <button className='button'>
+            {props.children}
         </button>
     )
 }
