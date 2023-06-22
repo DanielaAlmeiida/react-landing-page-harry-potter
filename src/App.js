@@ -2,6 +2,7 @@ import Banner from './components/Banner';
 import Form from './components/Form';
 import { useState } from 'react';
 import House from './components/House';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -26,33 +27,29 @@ function App() {
       primaryColor: '#E06B69',
       secondaryColor: '#FDE7E8'
     }
-  ]
+  ];
 
-  const [people, setPeople] = useState([])
+  const [people, setPeople] = useState([]);
 
   const newPersonAdded = (person) => {
-    console.log(person)
-    setPeople([...people, person])
-  }
+    //console.log(person);
+    setPeople([...people, person]);
+  };
 
   return (
     <div className="App">
       <Banner />
-      <Form whenNewSubmit={person => newPersonAdded(person)}/>     
-      {/*
-        <House name="Griffyndor"/>
-        <House name="Slytherin"/>
-      */}
-      {houses.map(house =>
+      <Form houses={houses.map(house => house.name)} whenNewSubmit={person => newPersonAdded(person)}/>     
+      {houses.map(house => (
         <House
           key={house.name}
           name={house.name}
           primaryColor={house.primaryColor}
           secondaryColor={house.secondaryColor}
+          people={people.filter(person => person.house === house.name)}
         />
-      )}
-
-
+      ))}
+      <Footer/>
     </div>
   );
 }

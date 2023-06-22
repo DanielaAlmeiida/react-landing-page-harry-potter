@@ -8,12 +8,14 @@ import './Form.css'
 
 const Form = (props) => {
 
+    /*
     const list = [
         'Griffindor', 
         'Ravenclaw', 
         'Slytherin', 
         'Hufflepuff'
     ];
+    */
 
     const onSave = (event) => {
         event.preventDefault();
@@ -25,6 +27,10 @@ const Form = (props) => {
             image,
             house
         })
+        setName('')
+        setAge('')
+        setImage('')
+        setHouse('')
     }
 
     const [name, setName] = useState('')
@@ -59,7 +65,7 @@ const Form = (props) => {
                 <Dropdown 
                     required={true} 
                     label="Select your house" 
-                    items={list} 
+                    items={props.houses} 
                     value={house}
                     whenChanged={value => setHouse(value)}
                 />
