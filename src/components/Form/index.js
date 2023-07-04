@@ -19,8 +19,8 @@ const Form = (props) => {
 
     const onSave = (event) => {
         event.preventDefault();
-        console.log('Event prevented.')
-        console.log('Form foi submetido -> ', name, age, image, house)
+        //console.log('Event prevented.')
+        //console.log('Form foi submetido -> ', name, age, image, house)
         props.whenNewSubmit({
             name,
             age,

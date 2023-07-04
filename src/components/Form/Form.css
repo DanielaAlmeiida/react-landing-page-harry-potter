@@ -5,7 +5,8 @@
 }
 
 .form form {
-    max-width: 60%;
+    min-width: 410px;
+    max-width: 80%;
     color: white;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 15px;

@@ -1,5 +1,9 @@
 .person {
+    position: relative;
     width: 280px;
+    margin-bottom: 18px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 .person .header {
@@ -15,7 +19,7 @@
 
 .person .footer {
     background: #FFFFFF;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 0px 0px 10px 10px;
     padding-top: 90px;
     padding-bottom: 40px;
@@ -34,4 +38,10 @@
     line-height: 22px;
     color: #212121;
     padding: 0 16px;
+}
+
+.delete {
+    position: absolute;
+    right: -10px;
+    top: -10px;
 }

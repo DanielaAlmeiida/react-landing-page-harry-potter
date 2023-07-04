@@ -9,23 +9,23 @@ function App() {
   const houses = [
     {
       name: 'Gryffindor',
-      primaryColor: '#57C278',
-      secondaryColor: '#D9F7E9'
+      primaryColor: 'rgba(255, 197, 0, .9)',
+      secondaryColor: 'rgba(127, 9, 9, .6)'
     },
     {
       name: 'Ravenclaw',
-      primaryColor: '#82CFFA',
-      secondaryColor: '#E8F8FF'
+      primaryColor: '#946B2D',
+      secondaryColor: 'rgba(0, 10, 144, .4)'
     },
     {
       name: 'Slytherin',
-      primaryColor: '#A6D157',
-      secondaryColor: '#F0F8E2'
+      primaryColor: '#AAAAAA',
+      secondaryColor: 'rgba(13, 98, 23, .3)'
     },
     {
       name: 'Hufflepuff',
-      primaryColor: '#E06B69',
-      secondaryColor: '#FDE7E8'
+      primaryColor: '#000000',
+      secondaryColor: 'rgba(238, 225, 23, .7)'
     }
   ];
 
@@ -33,13 +33,23 @@ function App() {
 
   const newPersonAdded = (person) => {
     //console.log(person);
+    //debugger
     setPeople([...people, person]);
   };
+
+
+  function deletePerson() {
+
+  }
+
 
   return (
     <div className="App">
       <Banner />
-      <Form houses={houses.map(house => house.name)} whenNewSubmit={person => newPersonAdded(person)}/>     
+      <Form 
+        houses={houses.map(house => house.name)} 
+        whenNewSubmit={person => newPersonAdded(person)}
+      />     
       {houses.map(house => (
         <House
           key={house.name}
@@ -47,6 +57,7 @@ function App() {
           primaryColor={house.primaryColor}
           secondaryColor={house.secondaryColor}
           people={people.filter(person => person.house === house.name)}
+          onDelete={deletePerson}
         />
       ))}
       <Footer/>

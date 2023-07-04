@@ -3,7 +3,7 @@ import './Banner.css';
 function Banner() {
     return (
         <header className="banner">
-            <img src="/images/banner.jpg" alt=""/>
+            <img src="/images/hp.png" alt=""/>
         </header>
     )
 }
