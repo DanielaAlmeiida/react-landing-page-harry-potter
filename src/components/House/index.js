@@ -1,22 +1,24 @@
 import Person from '../Person';
 import './House.css'
+import hexToRgba from 'hex-to-rgba';
 
-
-const House = (props, onDelete) => {
+const House = ({ house, people, onDelete, changeColor}) => {
     return (
-        (props.people.length > 0) ?
-         <section className='house' style={{ backgroundColor: props.secondaryColor }}>      
-            <input value={props.primaryColor} type='color' className='input-color'></input>
-            <h3 style={{ borderColor: props.primaryColor }}>{props.name}</h3>
+        (people.length > 0) ?
+         <section className='house' style={{ backgroundColor: hexToRgba(house.color, '0.6') }}>      
+            <input value={house.color} type='color' className='input-color' onChange={event => {
+                    changeColor(event.target.value, house.id);
+            }} />
+            <h3 style={{ borderColor: house.color }}>{house.name}</h3>
             <div className='people'>
-                {props.people.map( person =>{              
+                {people.map((person) => {              
                     return <Person
-                        primaryColor={props.primaryColor}
-                        key={person.name}
-                        name={person.name} 
-                        house={person.house} 
-                        image={person.image}
+                        color={house.color}
+                        key={person.id}
+                        person={person}
+                        house={house.name} 
                         onDelete={onDelete}
+                        changeColor={changeColor}
                     />
                 })}
             </div>               

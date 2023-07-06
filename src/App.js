@@ -3,33 +3,52 @@ import Form from './components/Form';
 import { useState } from 'react';
 import House from './components/House';
 import Footer from './components/Footer';
+import { v4 as uuidv4} from 'uuid';
 
 function App() {
 
-  const houses = [
+  const [houses, setHouses] = useState([
     {
+      id: uuidv4(),
       name: 'Gryffindor',
-      primaryColor: 'rgba(255, 197, 0, .9)',
-      secondaryColor: 'rgba(127, 9, 9, .6)'
+      color: '#FFC501'
     },
     {
+      id: uuidv4(),
       name: 'Ravenclaw',
-      primaryColor: '#946B2D',
-      secondaryColor: 'rgba(0, 10, 144, .4)'
+      color: 'rgba(0, 10, 144, .4)'
     },
     {
+      id: uuidv4(),
       name: 'Slytherin',
-      primaryColor: '#AAAAAA',
-      secondaryColor: 'rgba(13, 98, 23, .3)'
+      color: 'rgba(13, 98, 23, .3)'
     },
     {
+      id: uuidv4(),
       name: 'Hufflepuff',
-      primaryColor: '#000000',
-      secondaryColor: 'rgba(238, 225, 23, .7)'
+      color: 'rgba(238, 225, 23, .7)'
     }
-  ];
+  ])
 
-  const [people, setPeople] = useState([]);
+  const initial = [
+    {
+      id: uuidv4(),
+      name: 'Harry Potter',
+      age: 10,
+      image: 'https://static.wikia.nocookie.net/neoencyclopedia/images/4/44/HarryPotter5poster.jpg/revision/latest?cb=20121121021021',
+      house: houses[0].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Hermione Granger',
+      age: 10,
+      image: 'https://vignette3.wikia.nocookie.net/stexpanded/images/e/e1/HermioneHBPHi-resPromo3.jpg/revision/latest?cb=20090422183550',
+      house: houses[0].name
+    },
+
+  ]
+
+  const [people, setPeople] = useState(initial);
 
   const newPersonAdded = (person) => {
     //console.log(person);
@@ -37,9 +56,21 @@ function App() {
     setPeople([...people, person]);
   };
 
+  
 
-  function deletePerson() {
+  function deletePerson(id, props) {
+    console.log('Deletando colaborador: ', props);
+    setPeople(people.filter(people => people.id !== id));
 
+  }
+
+  function changeHouseColor(color, id) {
+    setHouses(houses.map(house => {
+      if(house.id === id) {
+        house.color = color;
+      }
+      return house;
+    }));
   }
 
 
@@ -52,12 +83,13 @@ function App() {
       />     
       {houses.map(house => (
         <House
+          house={house}
           key={house.name}
           name={house.name}
-          primaryColor={house.primaryColor}
-          secondaryColor={house.secondaryColor}
+          color={house.color}
           people={people.filter(person => person.house === house.name)}
           onDelete={deletePerson}
+          changeColor={changeHouseColor}
         />
       ))}
       <Footer/>

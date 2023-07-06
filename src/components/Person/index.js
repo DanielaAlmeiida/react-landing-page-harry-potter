@@ -1,16 +1,20 @@
 import './Person.css'
 import { AiFillCloseCircle } from 'react-icons/ai'
 
-const Person = ({name, house, image, primaryColor, onDelete}) => {
+const Person = ({ person, house, color, onDelete}) => {
     return <div className='person'>
-        <AiFillCloseCircle size={25} className='delete' onClick={onDelete}/>
+        <AiFillCloseCircle 
+            size={25} 
+            className='delete' 
+            onClick={() => onDelete(person.id)}
+        />
 
-        <div className='header' style={{ backgroundColor: primaryColor}}>
-            <img src={image} alt={name}></img>
+        <div className='header' style={{ backgroundColor: color}}>
+            <img src={person.image} alt={person.name}></img>
         </div>
         
         <div className='footer'>
-            <h4>{name}</h4>
+            <h4>{person.name}</h4>
             <h5>{house}</h5>
         </div>
 
