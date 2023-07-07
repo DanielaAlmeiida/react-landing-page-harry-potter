@@ -10,13 +10,13 @@ const House = ({ house, people, onDelete, changeColor}) => {
                     changeColor(event.target.value, house.id);
             }} />
             <h3 style={{ borderColor: house.color }}>{house.name}</h3>
-            <div className='people'>
+            <div className='people' >
                 {people.map((person) => {              
                     return <Person
+                        key={person.id} // Adicione a propriedade key aqui
                         color={house.color}
-                        key={person.id}
                         person={person}
-                        house={house.name} 
+                        house={house.name}
                         onDelete={onDelete}
                         changeColor={changeColor}
                     />

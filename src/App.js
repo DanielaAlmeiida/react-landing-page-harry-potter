@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import { v4 as uuidv4} from 'uuid';
 
 function App() {
-
   const [houses, setHouses] = useState([
     {
       id: uuidv4(),
@@ -28,7 +27,7 @@ function App() {
       name: 'Hufflepuff',
       color: 'rgba(238, 225, 23, .7)'
     }
-  ])
+  ]);
 
   const initial = [
     {
@@ -45,23 +44,12 @@ function App() {
       image: 'https://vignette3.wikia.nocookie.net/stexpanded/images/e/e1/HermioneHBPHi-resPromo3.jpg/revision/latest?cb=20090422183550',
       house: houses[0].name
     },
-
-  ]
+  ];
 
   const [people, setPeople] = useState(initial);
 
-  const newPersonAdded = (person) => {
-    //console.log(person);
-    //debugger
-    setPeople([...people, person]);
-  };
-
-  
-
-  function deletePerson(id, props) {
-    console.log('Deletando colaborador: ', props);
+  function deletePerson(id) {
     setPeople(people.filter(people => people.id !== id));
-
   }
 
   function changeHouseColor(color, id) {
@@ -73,18 +61,22 @@ function App() {
     }));
   }
 
+  function insertNewHouse(newHouse) {
+    setHouses([...houses, { ...newHouse, id: uuidv4() }])
+  }
 
   return (
     <div className="App">
       <Banner />
       <Form 
         houses={houses.map(house => house.name)} 
-        whenNewSubmit={person => newPersonAdded(person)}
+        whenNewSubmit={person => setPeople([...people, person])}
+        insertNewHouse={insertNewHouse}
       />     
       {houses.map(house => (
         <House
           house={house}
-          key={house.name}
+          key={house.id}
           name={house.name}
           color={house.color}
           people={people.filter(person => person.house === house.name)}
