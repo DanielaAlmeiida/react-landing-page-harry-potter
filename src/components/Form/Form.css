@@ -1,15 +1,18 @@
 .form{
     display: flex;
     justify-content: center;
-    margin: 80px 0;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 80px;
 }
 
 .form form {
-    min-width: 410px;
+    min-width: 350px;
     max-width: 80%;
     color: white;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 12px;
     padding: 36px 64px;
     box-shadow: 1px 1px 7px rgba(0, 250, 208, 0.6);
+    flex: 1;
 }

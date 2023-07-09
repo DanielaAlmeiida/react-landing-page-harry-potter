@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button';
 import Dropdown from '../Dropdown';
-import TextField from '../TextField';
+import Field from '../Field';
 import './Form.css'
 
 const Form = ({ houses, whenNewSubmit, insertNewHouse }) => {
@@ -32,21 +32,21 @@ const Form = ({ houses, whenNewSubmit, insertNewHouse }) => {
         <section className='form'>
             <form onSubmit={onSave}>
                 <h2>Enter your witch data!</h2>
-                <TextField 
+                <Field 
                     required
                     label="Name" 
                     placeholder="Enter your name"
                     value={name}
                     whenChanged={value => setName(value)}
                 />
-                <TextField 
+                <Field 
                     required
                     label="Age" 
                     placeholder="Enter your age"
                     value={age}
                     whenChanged={value => setAge(value)}
                 />
-                <TextField 
+                <Field 
                     label="Image" 
                     placeholder="Add image address"
                     value={image}
@@ -69,15 +69,16 @@ const Form = ({ houses, whenNewSubmit, insertNewHouse }) => {
                 insertNewHouse({name: houseName, color: houseColor})
             }}>
                 <h2>Create a new house.</h2>
-                <TextField 
+                <Field 
                     required
                     label="Name" 
                     placeholder="House name"
                     value={houseName}
                     whenChanged={value => setHouseName(value)}
                 />
-                <TextField 
+                <Field 
                     required 
+                    type='color'
                     label="Color" 
                     placeholder="House color"
                     value={houseColor}

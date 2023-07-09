@@ -15,17 +15,17 @@ function App() {
     {
       id: uuidv4(),
       name: 'Ravenclaw',
-      color: 'rgba(0, 10, 144, .4)'
+      color: '#000a90'
     },
     {
       id: uuidv4(),
       name: 'Slytherin',
-      color: 'rgba(13, 98, 23, .3)'
+      color: '#0d6217'
     },
     {
       id: uuidv4(),
       name: 'Hufflepuff',
-      color: 'rgba(238, 225, 23, .7)'
+      color: '#eee117'
     }
   ]);
 
@@ -34,7 +34,7 @@ function App() {
       id: uuidv4(),
       name: 'Harry Potter',
       age: 10,
-      image: 'https://static.wikia.nocookie.net/neoencyclopedia/images/4/44/HarryPotter5poster.jpg/revision/latest?cb=20121121021021',
+      image: 'https://64.media.tumblr.com/6b80eb5451d75525bdc7b19ed87cf35d/e40b9ab6f2507136-ec/s500x750/7e8a6d36e96d08589471b0f4f7dae39e2eb935a6.png',
       house: houses[0].name
     },
     {
@@ -43,6 +43,76 @@ function App() {
       age: 10,
       image: 'https://vignette3.wikia.nocookie.net/stexpanded/images/e/e1/HermioneHBPHi-resPromo3.jpg/revision/latest?cb=20090422183550',
       house: houses[0].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Ron Weasley',
+      age: 10,
+      image: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Ron_Weasley_poster.jpg/220px-Ron_Weasley_poster.jpg',
+      house: houses[0].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Luna Lovegood',
+      age: 10,
+      image: 'https://uvn-brightspot.s3.amazonaws.com/assets/vixpt/l/luna-lovegood-harry-potter_0.jpg',
+      house: houses[1].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Murta Warren',
+      age: 10,
+      image: 'https://i0.wp.com/animagos.com.br/wp-content/uploads/2015/05/Murta-que-geme.jpg?fit=810%2C351&ssl=1',
+      house: houses[1].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Sibila Trelawney',
+      age: 10,
+      image: 'https://arquivosdehogwarts.weebly.com/uploads/1/0/5/3/10531759/9045102.jpg',
+      house: houses[1].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Severus Snape',
+      age: 10,
+      image: 'https://observatoriodocinema.uol.com.br/wp-content/uploads/2022/09/morreu-o-actor-de-professor-snape-em-harry-potter-1452784531876.jpg',
+      house: houses[2].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Draco Malfoy',
+      age: 10,
+      image: 'https://pm1.aminoapps.com/7220/ebd19b69628f5f03fbf81f2005df52e801c5b516r1-306-471v2_00.jpg',
+      house: houses[2].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Tom Riddle',
+      age: 10,
+      image: 'https://4.bp.blogspot.com/-VAEUlvs1aTM/VzpKTYelXxI/AAAAAAAASvE/NMI9lcMC1eAQBB-0Fb0ZCsHoIBlECDH7QCLcB/s1600/Tom%2BRiddle.jpg',
+      house: houses[2].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Cedrico Diggory',
+      age: 10,
+      image: 'https://3.bp.blogspot.com/-oRwI55pbrxI/Tn4NQWghaTI/AAAAAAAAARw/FMPmHHEEcbg/s1600/Cedrico%2BDiggory.jpg',
+      house: houses[3].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Ninfadora Tonks',
+      age: 10,
+      image: 'https://3.bp.blogspot.com/-gg3zCuHFlc4/TtuCNeVyGeI/AAAAAAAAAzA/VMMisvZYFH4/s1600/Ninfadora+Tonks.jpg',
+      house: houses[3].name
+    },
+    {
+      id: uuidv4(),
+      name: 'Newt Scamander',
+      age: 10,
+      image: 'https://2.bp.blogspot.com/-0UdGm00cpRw/WDURTjuJeWI/AAAAAAAAsI4/s4FF_yyYEicdXUJqQZjrX0nCpiV7-PEIQCPcB/s1600/fantastic_beasts_and_where_to_find_them_still_10.jpg',
+      house: houses[3].name
     },
   ];
 

@@ -2,7 +2,8 @@ import './Person.css'
 import { AiFillCloseCircle } from 'react-icons/ai'
 
 const Person = ({ person, house, color, onDelete}) => {
-    return <div className='person'>
+    return (
+    <div className='person'>
         <AiFillCloseCircle 
             size={25} 
             className='delete' 
@@ -19,6 +20,7 @@ const Person = ({ person, house, color, onDelete}) => {
         </div>
 
     </div>
+    )
 }
 
 export default Person;
