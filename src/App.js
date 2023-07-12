@@ -32,6 +32,7 @@ function App() {
   const initial = [
     {
       id: uuidv4(),
+      favorite: true,
       name: 'Harry Potter',
       age: 10,
       image: 'https://64.media.tumblr.com/6b80eb5451d75525bdc7b19ed87cf35d/e40b9ab6f2507136-ec/s500x750/7e8a6d36e96d08589471b0f4f7dae39e2eb935a6.png',
@@ -39,6 +40,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Hermione Granger',
       age: 10,
       image: 'https://vignette3.wikia.nocookie.net/stexpanded/images/e/e1/HermioneHBPHi-resPromo3.jpg/revision/latest?cb=20090422183550',
@@ -46,6 +48,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Ron Weasley',
       age: 10,
       image: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Ron_Weasley_poster.jpg/220px-Ron_Weasley_poster.jpg',
@@ -53,6 +56,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Luna Lovegood',
       age: 10,
       image: 'https://uvn-brightspot.s3.amazonaws.com/assets/vixpt/l/luna-lovegood-harry-potter_0.jpg',
@@ -60,6 +64,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Murta Warren',
       age: 10,
       image: 'https://i0.wp.com/animagos.com.br/wp-content/uploads/2015/05/Murta-que-geme.jpg?fit=810%2C351&ssl=1',
@@ -67,6 +72,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Sibila Trelawney',
       age: 10,
       image: 'https://arquivosdehogwarts.weebly.com/uploads/1/0/5/3/10531759/9045102.jpg',
@@ -74,6 +80,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Severus Snape',
       age: 10,
       image: 'https://observatoriodocinema.uol.com.br/wp-content/uploads/2022/09/morreu-o-actor-de-professor-snape-em-harry-potter-1452784531876.jpg',
@@ -81,6 +88,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Draco Malfoy',
       age: 10,
       image: 'https://pm1.aminoapps.com/7220/ebd19b69628f5f03fbf81f2005df52e801c5b516r1-306-471v2_00.jpg',
@@ -88,6 +96,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Tom Riddle',
       age: 10,
       image: 'https://4.bp.blogspot.com/-VAEUlvs1aTM/VzpKTYelXxI/AAAAAAAASvE/NMI9lcMC1eAQBB-0Fb0ZCsHoIBlECDH7QCLcB/s1600/Tom%2BRiddle.jpg',
@@ -95,6 +104,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Cedrico Diggory',
       age: 10,
       image: 'https://3.bp.blogspot.com/-oRwI55pbrxI/Tn4NQWghaTI/AAAAAAAAARw/FMPmHHEEcbg/s1600/Cedrico%2BDiggory.jpg',
@@ -102,6 +112,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Ninfadora Tonks',
       age: 10,
       image: 'https://3.bp.blogspot.com/-gg3zCuHFlc4/TtuCNeVyGeI/AAAAAAAAAzA/VMMisvZYFH4/s1600/Ninfadora+Tonks.jpg',
@@ -109,6 +120,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Newt Scamander',
       age: 10,
       image: 'https://2.bp.blogspot.com/-0UdGm00cpRw/WDURTjuJeWI/AAAAAAAAsI4/s4FF_yyYEicdXUJqQZjrX0nCpiV7-PEIQCPcB/s1600/fantastic_beasts_and_where_to_find_them_still_10.jpg',
@@ -135,6 +147,15 @@ function App() {
     setHouses([...houses, { ...newHouse, id: uuidv4() }])
   }
 
+  function manageFavorite(id) {
+    setPeople(people.map((person) => {
+      if(person.id === id) { 
+        person.favorite = !person.favorite;       
+      }
+      return person
+    }))
+  }
+  
   return (
     <div className="App">
       <Banner />
@@ -142,18 +163,22 @@ function App() {
         houses={houses.map(house => house.name)} 
         whenNewSubmit={person => setPeople([...people, person])}
         insertNewHouse={insertNewHouse}
-      />     
-      {houses.map(house => (
-        <House
-          house={house}
-          key={house.id}
-          name={house.name}
-          color={house.color}
-          people={people.filter(person => person.house === house.name)}
-          onDelete={deletePerson}
-          changeColor={changeHouseColor}
-        />
-      ))}
+      /> 
+      <section>
+        <h1>Welcome to Hogwarts!</h1>
+        {houses.map(house => (
+          <House
+            house={house}
+            key={house.id}
+            name={house.name}
+            color={house.color}
+            people={people.filter(person => person.house === house.name)}
+            onDelete={deletePerson}
+            changeColor={changeHouseColor}
+            onFavorite={manageFavorite}
+          />
+        ))}
+      </section>          
       <Footer/>
     </div>
   );

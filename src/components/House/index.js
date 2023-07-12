@@ -2,7 +2,7 @@ import Person from '../Person';
 import './House.css'
 import hexToRgba from 'hex-to-rgba';
 
-const House = ({ house, people, onDelete, changeColor}) => {
+const House = ({ house, people, onDelete, changeColor, onFavorite}) => {
     return (
         (people.length > 0) ?
          <section className='house' style={{ backgroundColor: hexToRgba(house.color, '0.6') }}>      
@@ -12,14 +12,17 @@ const House = ({ house, people, onDelete, changeColor}) => {
             <h3 style={{ borderColor: house.color }}>{house.name}</h3>
             <div className='people' >
                 {people.map((person) => {              
-                    return <Person
-                        key={person.id} // Adicione a propriedade key aqui
-                        color={house.color}
-                        person={person}
-                        house={house.name}
-                        onDelete={onDelete}
-                        changeColor={changeColor}
-                    />
+                    return (
+                        <Person
+                            key={person.id} // Adicione a propriedade key aqui
+                            color={house.color}
+                            person={person}
+                            house={house.name}
+                            onDelete={onDelete}
+                            changeColor={changeColor}
+                            onFavorite={onFavorite}
+                        />
+                    )
                 })}
             </div>               
         </section>

@@ -63,7 +63,6 @@ const Form = ({ houses, whenNewSubmit, insertNewHouse }) => {
             </form>
 
             {/* Form 2*/}
-
             <form onSubmit={(event) => {
                 event.preventDefault();
                 insertNewHouse({name: houseName, color: houseColor})
